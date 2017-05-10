@@ -53,6 +53,7 @@
     <Compile Include="LocalFunctions.cs" />
     <Compile Include="MyClass.cs" />
     <Compile Include="OutVariable.cs" />
+    <Compile Include="PatternMatching.cs" />
     <Compile Include="Ref.cs" />
     <Compile Include="Throw.cs" />
     <Compile Include="Tuple7_1.cs" />

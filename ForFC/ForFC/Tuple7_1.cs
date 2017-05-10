@@ -26,6 +26,9 @@ namespace ForFC
 
             var (x, y) = tuple;
             (x, y) = named;
+
+            var (z, _) = tuple;
+            int.TryParse("123", out _);
         }
     }
 }

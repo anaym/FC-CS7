@@ -13,12 +13,17 @@ namespace ForFC
             }
         }
 
-        public void Foo()
+        public object Foo()
         {
+
+            int.TryParse("123", out _);
+
             if (int.TryParse("123", out var result))
             {
                 Console.WriteLine(result + 2);
             }
+
+            return "";
         }
     }
 }

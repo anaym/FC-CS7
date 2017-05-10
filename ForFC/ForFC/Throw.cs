@@ -4,15 +4,20 @@ namespace ForFC
 {
     public class Throw
     {
-        public void Foo(string str)
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public string ToString()
         {
-            str = str ?? throw new ArgumentNullException("", nameof(str));
+            return FirstName ?? LastName ?? throw new Exception();
         }
 
-        public void Old(string str)
+        public string ToString()
         {
+            var str = FirstName ?? LastName;
             if (str == null)
-                throw new ArgumentException("", nameof(str));
+                throw new Exception();
+            return str;
         }
     }
 }
