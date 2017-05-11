@@ -15,6 +15,8 @@ namespace ForFC
             var sequence = new[] { 1, 2, 3 };
             var result = Find(sequence, i => i > 2);
             Console.WriteLine($"{result.Index}: {result.Value}");
+
+            var fod = sequence.Select(i => new { Value = i, Index = i }).FirstOrDefault();
         }
 
         public static Tuple<int, int> CreatePoint(int x, int y)
