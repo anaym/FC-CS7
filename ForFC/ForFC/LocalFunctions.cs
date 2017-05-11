@@ -15,15 +15,20 @@ namespace ForFC
             }
             return Factorial;
         }
+
+        public object o = "";
         public IEnumerable<IEnumerable<int>> ToRanges(IEnumerable<int> limits)
         {
-            IEnumerable<int> Range(int n)
+            lock (o)
             {
-                for (var i = 0; i < n; i++)
-                    yield return i;
+                IEnumerable<int> Range(int n)
+                {
+                    for (var i = 0; i < n; i++)
+                        yield return i;
+                }
+                Func<int, IEnumerable<int>> range = Range;
+                return limits.Select(Range);
             }
-            Func<int, IEnumerable<int>> range = Range;
-            return limits.Select(Range);
         }
     }
 }

@@ -11,5 +11,10 @@
         {
             return (x, y);
         }
+
+        public void Foo()
+        {
+            var tuple = (1, 2);
+        }
     }
 }
