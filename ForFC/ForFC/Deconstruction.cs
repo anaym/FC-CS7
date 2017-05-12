@@ -13,8 +13,8 @@
 
         public static void Foo()
         {
-            var obj = new MyClass();
-            var (num, str) = obj;
+            var myObject = new MyClass();
+            var (num, str) = myObject;
 
             num += 1;
             str += "!";

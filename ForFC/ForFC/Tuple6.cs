@@ -16,6 +16,8 @@ namespace ForFC
             var result = Find(sequence, i => i > 2);
             Console.WriteLine($"{result.Index}: {result.Value}");
 
+            new ValueTuple<int, int>
+
             var fod = sequence.Select(i => new { Value = i, Index = i }).FirstOrDefault();
         }
 
@@ -24,18 +26,18 @@ namespace ForFC
             return new Tuple<int, int>(x, y);
         }
 
-        Tuple<T, int> Find_<T>(IEnumerable<int> seq, Predicate<T> p)
+        Tuple<int, int> Find(IEnumerable<int> seq, Predicate<int> p)
         {
             return seq
-                .Select((v, i) => Tuple.Create(v, i))
-                .FirstOrDefault(pair => p(pair.Item1));
+                .Select((v, i) => new Tuple<int, int>(v, i))
+                .First(pair => p(pair.Item1));
         }
 
         static (int Value, int Index) Find(IEnumerable<int> seq, Predicate<int> p)
         {
             return seq
                 .Select((v, i) => (v, i))
-                .FirstOrDefault(pair => p(pair.Item1));
+                .First(pair => p(pair.Item1));
         }
     }
 }

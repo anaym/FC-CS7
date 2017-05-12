@@ -17,25 +17,30 @@ namespace ConsoleApp
             Console.WriteLine((1, new Program()).Equals((1, new Program())));
 
             Goo((new List<int>(), new List<int>()));
-            Goo(Tuple.Create(new List<int>(), new List<int>()));
+            //Goo(Tuple.Create(new List<int>(), new List<int>()));
 
-            (object, object) t = ("", "");
+            var ts = ("a", "b");
+            (object, object) t = ("a", "b");
             Action <(object, object)> ota = _ => { };
-            Action<(string, string)> sta = ota;
+            //Action<(string, string)> sta = ota;
 
             Action<object> oa = _ => { };
             Action<string> sa = oa;
 
             Action<Tuple<object, object>> ooa = _ => { };
-            Action<Tuple<string, string>> soa = ooa;
+            //Action<Tuple<string, string>> soa = ooa;
 
-            t = null;
+            //t = null;
             Tuple<int, int> o = null;
 
             var a = 1;
             var b = 2;
             (b, a) = (a, b);
 
+            t.Item1 = 1;
+
+            Console.WriteLine(ts);
+            Console.WriteLine(t);
         }
 
         public static void Goo((IList<int>, IList<int>) tuple)

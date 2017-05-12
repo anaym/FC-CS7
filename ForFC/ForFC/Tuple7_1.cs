@@ -25,6 +25,9 @@ namespace ForFC
             named.Y = 3;
 
             var (x, y) = tuple;
+            var x = tuple.Item1;
+            var y = tuple.Item2;
+
             (x, y) = named;
 
             var (z, _) = tuple;

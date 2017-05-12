@@ -6,14 +6,18 @@ namespace ForFC
 {
     public class LocalFunctions
     {
-        public Func<int, int> Foo()
+        private static Dictionary<int, int> Cache;
+
+        public int Factorial(int n, int weight)
         {
-            int weight = 10;
-            int Factorial(int n)
+            if (n < 0) throw new ArgumentException();
+
+            int Factorial(int j)
             {
-                return n <= 1 ? weight : weight * n * Factorial(n - 1);
+                return j <= 1 ? weight : weight * j * Factorial(j - 1);
             }
-            return Factorial;
+
+            return Factorial(n);
         }
 
         public object o = "";
@@ -32,3 +36,4 @@ namespace ForFC
         }
     }
 }
+ 
