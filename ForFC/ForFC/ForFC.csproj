@@ -55,6 +55,7 @@
     <Compile Include="OutVariable.cs" />
     <Compile Include="PatternMatching.cs" />
     <Compile Include="Ref.cs" />
+    <Compile Include="SwitchCase.cs" />
     <Compile Include="Throw.cs" />
     <Compile Include="Tuple7_1.cs" />
     <Compile Include="Tuple6.cs" />

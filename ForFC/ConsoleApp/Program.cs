@@ -41,6 +41,11 @@ namespace ConsoleApp
 
             Console.WriteLine(ts);
             Console.WriteLine(t);
+
+            var n = new BinaryTree.Node(10);
+            n.Insert(5);
+            n.Insert(15);
+            n.Insert(20);
         }
 
         public static void Goo((IList<int>, IList<int>) tuple)
@@ -53,6 +58,39 @@ namespace ConsoleApp
         {
             Console.WriteLine("!!!");
             return true;
+        }
+    }
+
+    public class BinaryTree
+    {
+        public object Field;
+
+        public ref object Foo()
+        {
+            return ref Field;
+        }
+
+        public class Node {
+            public Node Left;
+            public Node Right;
+            public int Value;
+            public bool IsLeaf => Left == null && Right == null;
+            public Node(int value) => Value = value;
+            private static Node N;
+
+            public void Insert(int value) {
+                ref Node node = ref ChooseNodeForInsert(value);
+                if (IsLeaf || node is null)
+                    node = new Node(value);
+                else
+                    node.Insert(value);
+            }
+
+            public ref Node ChooseNodeForInsert(int value) {
+                if (value >= Value)
+                    return ref Right;
+                return ref N;
+            }
         }
     }
 }
